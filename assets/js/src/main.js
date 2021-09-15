@@ -1,0 +1,1 @@
+var global = require("./custom/global");

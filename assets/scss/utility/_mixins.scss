@@ -1,0 +1,136 @@
+//	_mixins.scss
+
+@mixin clearfix() {
+	&:before,
+	&:after {
+		content: " ";
+		display: table;
+	}
+	&:after {
+		clear: both;
+	}
+}
+@mixin dropshadow() {
+	box-shadow: 5px 5px 0 rgba(#000, .05);
+}
+@mixin clearButton() {
+	padding: 0;
+	border: 0;
+	background-color: transparent;
+}
+@mixin aspect-ratio($width, $height, $contentSelector) {
+	position: relative;
+	overflow: hidden;
+	&:before {
+		display: block;
+		content: "";
+		width: 100%;
+		padding-top: ($height / $width) * 100%;
+	}
+	> #{$contentSelector} {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+	}
+}
+
+@mixin aspect-ratio-single-element($width, $height) {
+	position: relative;
+	overflow: hidden;
+	&:before {
+		display: block;
+		content: "";
+		width: 100%;
+		padding-top: ($height / $width) * 100%;
+	}
+}
+
+@mixin icon-pseudo-element($height, $width) {
+	content: '';
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center;
+	height: $height;
+	width: $width;
+}
+
+@function calculateRem($size) {
+	$remSize: $size / 16px;
+	@return #{$remSize}rem;
+}
+@mixin fontsize($size) {
+	font-size: $size; 
+	font-size: calculateRem($size);
+}
+
+// element-invisible improved and more robust
+@mixin element-invisible {
+	border: 0;
+	height: 1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute !important;
+	width: 1px;
+	clip: rect(1px, 1px, 1px, 1px);
+}
+	
+// Turns off the element-invisible effect
+@mixin element-invisible-off {
+	position: static !important;
+	clip: auto;
+	height: auto;
+	width: auto;
+	overflow: auto;
+}
+	
+@mixin element-focusable {
+	@include element-invisible;
+	
+	&:active,
+	&:focus {
+		@include element-invisible-off;
+	}
+}
+
+@mixin button($style, $color) {
+	@include fontsize(20px);
+	text-align: center;	
+	padding: 18px 40px;
+	color: #fff;
+	border: none;
+	font-weight: 600;
+	text-transform: uppercase;
+	background-color: $green;
+	transition: 0.3s ease-out;
+	cursor: pointer;
+	border-radius: 400px;
+	&:hover,
+	&:active,
+	&:focus {
+		background-color: $blue;
+		border: 0;
+	}
+	&[disabled],
+	&[disabled="true"] {
+		background-color: $grey-2;
+		color: $grey;
+	}
+	@if $style == outline {
+		border: 1px solid $blue-2;
+		color: $blue-2;
+		&:hover {
+			background-color: $blue-2;
+			color: #fff;
+		}
+	}
+	@if $color == grey {		
+		color: $grey-2;
+		background-color: $grey;
+		&:hover {
+			background-color: $grey-2;
+			color: #fff;
+		}
+	}
+}

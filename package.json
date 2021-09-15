@@ -1,0 +1,34 @@
+{
+    "name": "pge",
+    "version": "1.0.0",
+    "description": "files for pge preference center",
+    "private": true,
+    "main": "gulpfile.js",
+    "devDependencies": {
+        "@babel/core": "^7.8.4",
+        "@babel/preset-env": "^7.8.4",
+        "browser-sync": "^2.26.13",
+        "gulp": "^4.0.2",
+        "gulp-autoprefixer": "^7.0.1",
+        "gulp-babel": "^8.0.0",
+        "gulp-concat": "^2.6.1",
+        "gulp-minify": "^3.1.0",
+        "gulp-notify": "^4.0.0",
+        "gulp-plumber": "^1.1.0",
+        "gulp-sass": "^4.1.1",
+        "gulp-sourcemaps": "^3.0.0",
+        "sass": "^1.39.0",
+        "yargs": "^15.3.1",
+        "gulp-file-include": "2.3.0"
+    },
+    "scripts": {
+        "postinstall": "node ./npm/postinstall.js",
+        "start": "gulp",
+        "no_browser_sync": "gulp --no_browser_sync",
+        "build-prod": "gulp build --production",
+        "build-dev": "gulp build"
+    },
+    "author": "Digital Artisans",
+    "license": "UNLICENSED",
+    "dependencies": {}
+}

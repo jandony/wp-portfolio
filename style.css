@@ -1,22 +1,335 @@
 /*
-Theme Name: WP Portfolio
-Theme URI: https://www.themehorse.com/themes/wp-portfolio/
-Author: Theme Horse
-Author URI: https://www.themehorse.com/
+Theme Name: Sass WP Theme
+Author: Jeff Andony
+Author URI: https://jeffandony.com
 Description: WP Portfolio is a Simple, Clean and Beautiful Responsive Free WordPress Portfolio Theme which adapts automatically to your tablets and mobile devices. WP Portfolio is specially designed for designers, photographers, artists and creatives. There are two post view layout (Grid and list), Social Profile Navigation and many more. Also has Custom Background, Header, Menu, Favicon, CSS, Webclip Icon, and Logo. Supports popular plugins like WooCommerce, bbPress, Breadcrumb NavXT, WP-PageNavi and Contact Form 7 and many more. It is also translation ready. Get free support at https://www.themehorse.com/support-forum/ and view beautiful portfolio demo site at https://www.themehorse.com/preview/wp-portfolio
 Version: 2.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: e-commerce, photography, portfolio, two-columns, three-columns, four-columns, left-sidebar, grid-layout, custom-background, custom-header, custom-logo, custom-menu, featured-image-header, featured-images, rtl-language-support, sticky-post, theme-options, threaded-comments, translation-ready
-Text Domain: wp-portfolio
-
-WP Portfolio is based on Underscores http://underscores.me/, (C) 2012-2017 Automattic, Inc.
-
-WP Portfolio WordPress Theme, Copyright Theme Horse
-WP Portfolio is distributed under the terms of the GNU GPL
-
-Resetting and rebuilding styles have been helped along thanks to the fine work of
-Eric Meyer http://meyerweb.com/eric/tools/css/reset/index.html
-along with Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
-and Blueprint http://www.blueprintcss.org/
+Text Domain: sass-wp-theme
 */
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap");
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* apply a natural box layout model to all elements, but allowing components to change */
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+@-webkit-keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+body {
+  font-size: 16px;
+  font-size: 1rem;
+  color: #525252;
+  line-height: 1.65;
+  overflow-x: hidden;
+  position: relative;
+  font-family: 'Roboto', sans-serif !important;
+}
+
+h1,
+.h1 {
+  font-size: 30px;
+  font-size: 1.875rem;
+  font-weight: 600;
+  line-height: 1.75;
+  margin-bottom: 10px;
+  display: table;
+  font-family: 'Roboto';
+  color: #000;
+  /*hack to fix box model width border*/
+}
+
+@media screen and (min-width: 1024px) {
+  h1,
+  .h1 {
+    font-size: 65px;
+    font-size: 4.0625rem;
+  }
+}
+
+h2,
+.h2 {
+  font-size: 24px;
+  font-size: 1.5rem;
+  color: red;
+}
+
+h3,
+.h3 {
+  font-size: 24px;
+  font-size: 1.5rem;
+  line-height: 1.33;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+h4,
+.h4 {
+  font-size: 24px;
+  font-size: 1.5rem;
+  line-height: 1.33;
+  font-weight: 700;
+}
+
+h5,
+.h5 {
+  font-size: 20px;
+  font-size: 1.25rem;
+  line-height: 1.33;
+  font-weight: 700;
+}
+
+h6,
+.h6 {
+  font-size: 16px;
+  font-size: 1rem;
+  line-height: 1.31;
+  font-weight: 700;
+}
+
+strong {
+  font-weight: bold;
+}
+
+em {
+  font-style: italic;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+a:hover, a:active {
+  text-decoration: underline;
+}
+
+ol {
+  list-style-type: decimal;
+  margin-bottom: 1rem;
+  padding-left: 40px;
+}
+
+ul {
+  margin-bottom: 1rem;
+  list-style-type: disc;
+  padding-left: 40px;
+}
+
+ul li {
+  position: relative;
+}
+
+p {
+  margin-bottom: 1rem;
+  color: #000;
+  line-height: 1.65;
+  max-width: 900px;
+}
+
+p.large {
+  font-size: 18px;
+  font-size: 1.125rem;
+  font-weight: 100;
+}
+
+@media screen and (min-width: 1024px) {
+  p.large {
+    font-size: 26px;
+    font-size: 1.625rem;
+  }
+}
+
+ul {
+  margin-bottom: 10px;
+  padding-left: 38px;
+}
+
+@media screen and (min-width: 768px) {
+  ul {
+    margin-bottom: 14px;
+  }
+}
+
+ul > li {
+  position: relative;
+  padding-bottom: 12px;
+}
+
+ul > li:before {
+  content: '';
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #000;
+  margin-right: 9px;
+  position: absolute;
+  top: 10px;
+  left: -16px;
+}
+
+ul > li:not(:last-of-type) {
+  padding-bottom: 14px;
+}
+
+ul > li:last-of-type {
+  padding-bottom: 0;
+}
+
+ol {
+  list-style: none;
+  counter-reset: item;
+  padding-left: 20px;
+}
+
+@media screen and (min-width: 768px) {
+  ol {
+    margin-bottom: 14px;
+  }
+}
+
+ol li {
+  font-size: 16px;
+  font-size: 1rem;
+  counter-increment: li;
+  padding-left: 2px;
+  position: relative;
+}
+
+ol li:not(:last-of-type) {
+  padding-bottom: 12px;
+}
+
+ol li:before {
+  content: counters(item, ")") ") ";
+  counter-increment: item;
+  color: #000;
+  font-size: 16px;
+  font-size: 1rem;
+  display: inline-block;
+  padding-right: 10px;
+  width: 50px;
+  position: absolute;
+  left: -45px;
+  text-align: right;
+}
+
+ol ol {
+  margin-top: 12px;
+  margin-left: 15px;
+  margin-bottom: 0;
+}
+
+ol ol li:before {
+  counter-increment: item;
+  content: counter(item, lower-alpha) ") ";
+}
+
+ol ol li ol {
+  margin-top: 12px;
+  margin-left: 15px;
+  margin-bottom: 0;
+}
+
+ol ol li ol li:before {
+  counter-increment: item;
+  content: counter(item, lower-roman) ") ";
+}
+
+body {
+  background-color: #fff !important;
+}
