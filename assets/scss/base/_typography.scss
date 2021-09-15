@@ -7,28 +7,8 @@ body {
     font-family: 'Roboto', sans-serif !important;
 }
 
-h1,
-.h1 {
-    @include fontsize(30px);
-    font-weight: 600;
-    line-height: 1.75;
-    margin-bottom: 10px;
-    display: table;
-    font-family: 'Roboto';
-    color: $black;
-    /*hack to fix box model width border*/
-    @media screen and (min-width: $break-desktopSmall) {
-        @include fontsize(65px);
-    }
-    // &:after {
-    //     content: '';
-    //     display: block;
-    //     height: 10px;
-    //     width: 600px;
-    //     background-color: $black;
-    // }
-}
-
+// h1,
+// .h1 {}
 h2,
 .h2 {
     @include fontsize(24px);
@@ -81,21 +61,6 @@ a {
     }
 }
 
-ol {
-    list-style-type: decimal;
-    margin-bottom: 1rem;
-    padding-left: 40px;
-}
-
-ul {
-    margin-bottom: 1rem;
-    list-style-type: disc;
-    padding-left: 40px;
-    li {
-        position: relative;
-    }
-}
-
 p {
     margin-bottom: 1rem;
     color: $black;
@@ -106,88 +71,6 @@ p {
         font-weight: 100;
         @media screen and (min-width: $break-desktopSmall) {
             @include fontsize(26px);
-        }
-    }
-}
-
-ul {
-    margin-bottom: 10px;
-    padding-left: 38px;
-    @media screen and (min-width: $break-tabletSmall) {
-        margin-bottom: 14px;
-    }
-    &>li {
-        position: relative;
-        padding-bottom: 12px;
-        &:before {
-            content: '';
-            display: inline-block;
-            width: 7px;
-            height: 7px;
-            border-radius: 50%;
-            background-color: $black;
-            margin-right: 9px;
-            position: absolute;
-            top: 10px;
-            left: -16px;
-        }
-        &:not(:last-of-type) {
-            padding-bottom: 14px;
-        }
-        &:last-of-type {
-            padding-bottom: 0;
-        }
-    }
-}
-
-ol {
-    list-style: none;
-    counter-reset: item;
-    padding-left: 20px;
-    @media screen and (min-width: $break-tabletSmall) {
-        margin-bottom: 14px;
-    }
-    li {
-        @include fontsize(16px);
-        counter-increment: li;
-        padding-left: 2px;
-        position: relative;
-        &:not(:last-of-type) {
-            padding-bottom: 12px;
-        }
-        &:before {
-            content: counters(item, ")") ") ";
-            counter-increment: item;
-            color: $black;
-            @include fontsize(16px);
-            display: inline-block;
-            padding-right: 10px;
-            width: 50px;
-            position: absolute;
-            left: -45px;
-            text-align: right;
-        }
-    }
-    ol {
-        margin-top: 12px;
-        margin-left: 15px;
-        margin-bottom: 0;
-        li {
-            &:before {
-                counter-increment: item;
-                content: counter(item, lower-alpha) ") ";
-            }
-            ol {
-                margin-top: 12px;
-                margin-left: 15px;
-                margin-bottom: 0;
-                li {
-                    &:before {
-                        counter-increment: item;
-                        content: counter(item, lower-roman) ") ";
-                    }
-                }
-            }
         }
     }
 }
